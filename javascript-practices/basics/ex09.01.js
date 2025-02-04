@@ -1,7 +1,7 @@
 /*
     string primitive 타입과 String 객체 함수(String.prototype.*) 
 */
-
+/////
 // 배열처럼 접근이 가능하다.
 var str1 = "Hello World";
 for(var i = 0; i < str1.length; i++){
