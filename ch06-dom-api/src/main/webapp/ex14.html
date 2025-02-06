@@ -3,10 +3,60 @@
 <head>
 	<title>ex14</title>
 	<meta charset="UTF-8">
+	<script>
+		window.addEventListener("load", function(){
+			document
+				.getElementById('form-login')
+				.addEventListener('submit', function(){
+				
+				event.preventDefault();
+				var email = document.getElementById('input-email').value;
+				if(email === ''){
+					alert('이메일이 비어있습니다.');
+					document.getElementById('input-email').focus();
+				}
+			
+				var password = document.getElementById('input-password').value;
+				if(password === ''){
+					alert('비밀번호가 비어있습니다.');
+					document.getElementById('input-password').focus();
+				}
+				
+				// this.submit();
+				alert('ajax login 하기~');
+			});
+		});
+		
+		/*
+			EventPropagation(Bubbling)
+			어떤 이벤트가 발생했을 때, 그 이벤트가 상위/하위 엘리멘트로 전파 되어 가는 것
+			
+			text > head > inner-div > outer-div
+			
+		*/
+		
+		window.addEventListener('load', function(){
+			document.getElementById('text').addEventListener('click', function(){
+				console.log("text clicked")
+			});
+			
+			document.getElementById('header').addEventListener('click', function(){
+				console.log("header clicked")
+			});
+			
+			document.getElementById('inner-div').addEventListener('click', function(){
+				console.log("inner-div clicked")
+			});
+			
+			document.getElementById('outter-div').addEventListener('click', function(){
+				console.log("outter-div clicked")
+			});
+		});
+	</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
-	<h2>6. 기본(default) Event Hanlder 동작 막기 - 2. form: DOM Event Model Level0</h2>
+	<h2>6. 기본(default) Event Hanlder 동작 막기 - 2. form</h2>
 	
 	<form id='form-login' method='post' action='/user/auth'>
 		<label for='input-email'>이메일</label>
